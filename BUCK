@@ -1,7 +1,11 @@
 include_defs('//BUCKAROO_DEPS')
 
+posix_flags = [
+  '-DBOOST_THREAD_POSIX',
+]
+
 cxx_library(
-  name = 'boost-thread', 
+  name = 'boost-thread',
   header_namespace = 'boost',
   exported_headers = subdir_glob([
     ('include/boost', '**/*.hpp'),
@@ -10,9 +14,21 @@ cxx_library(
     'src/*.cpp',
   ]),
   platform_srcs = [
+    ('default', glob(['src/pthread/**/*.cpp'])),
     ('^macos.*', glob(['src/pthread/**/*.cpp'])),
     ('^linux.*', glob(['src/pthread/**/*.cpp'])),
     ('^windows.*', glob(['src/win32/**/*.cpp'])),
+  ],
+  compiler_flags = [
+    '-DBOOST_THREAD_STATIC_LINK=1',
+    '-DBOOST_THREAD_DYN_LINK=1',
+    '-DBOOST_THREAD_BUILD_LIB=1',
+    '-DBOOST_THREAD_BUILD_DLL=1',
+  ],
+  platform_compiler_flags = [
+    ('default', posix_flags),
+    ('^macos.*', posix_flags),
+    ('^linux.*', posix_flags),
   ],
   visibility = [
     'PUBLIC',

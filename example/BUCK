@@ -1,0 +1,70 @@
+cxx_binary(
+  name = 'ba_externally_locked',
+  srcs = [
+    'ba_externally_locked.cpp',
+  ],
+  deps = [
+    '//:boost-thread',
+  ],
+)
+
+cxx_binary(
+  name = 'condition',
+  srcs = [
+    'condition.cpp',
+  ],
+  deps = [
+    '//:boost-thread',
+  ],
+)
+
+cxx_binary(
+  name = 'default_executor',
+  srcs = [
+    'default_executor.cpp',
+  ],
+  deps = [
+    '//:boost-thread',
+  ],
+)
+
+cxx_binary(
+  name = 'once',
+  srcs = [
+    'once.cpp',
+  ],
+  deps = [
+    '//:boost-thread',
+  ],
+)
+
+cxx_binary(
+  name = 'serial_executor',
+  srcs = [
+    'serial_executor.cpp',
+  ],
+  deps = [
+    '//:boost-thread',
+  ],
+)
+
+cxx_binary(
+  name = 'tennis',
+  srcs = [
+    'tennis.cpp',
+  ],
+  deps = [
+    '//:boost-thread',
+  ],
+)
+
+
+cxx_binary(
+  name = 'with_lock_guard',
+  srcs = [
+    'with_lock_guard.cpp',
+  ],
+  deps = [
+    '//:boost-thread',
+  ],
+)
