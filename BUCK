@@ -5,7 +5,7 @@ posix_flags = [
 ]
 
 cxx_library(
-  name = 'boost-thread',
+  name = 'thread',
   header_namespace = 'boost',
   exported_headers = subdir_glob([
     ('include/boost', '**/*.hpp'),
