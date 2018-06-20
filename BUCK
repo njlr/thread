@@ -15,9 +15,15 @@ cxx_library(
   ]),
   platform_srcs = [
     ('default', glob(['src/pthread/**/*.cpp'])),
+    ('^iphoneos.*', glob(['src/pthread/**/*.cpp'])),
     ('^macos.*', glob(['src/pthread/**/*.cpp'])),
     ('^linux.*', glob(['src/pthread/**/*.cpp'])),
     ('^windows.*', glob(['src/win32/**/*.cpp'])),
+  ],
+  platform_compiler_flags = [
+    ('default', posix_flags),
+    ('^macos.*', posix_flags),
+    ('^linux.*', posix_flags),
   ],
   compiler_flags = [
     '-DBOOST_THREAD_STATIC_LINK=1',
@@ -27,6 +33,7 @@ cxx_library(
   ],
   platform_compiler_flags = [
     ('default', posix_flags),
+    ('^iphoneos.*', posix_flags),
     ('^macos.*', posix_flags),
     ('^linux.*', posix_flags),
   ],
