@@ -20,11 +20,6 @@ cxx_library(
     ('^linux.*', glob(['src/pthread/**/*.cpp'])),
     ('^windows.*', glob(['src/win32/**/*.cpp'])),
   ],
-  platform_compiler_flags = [
-    ('default', posix_flags),
-    ('^macos.*', posix_flags),
-    ('^linux.*', posix_flags),
-  ],
   compiler_flags = [
     '-DBOOST_THREAD_STATIC_LINK=1',
     '-DBOOST_THREAD_DYN_LINK=1',
